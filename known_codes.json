@@ -1,0 +1,54 @@
+{
+  "last_updated": "2026-05-11",
+  "note": "ELIGIBLE = 当前账户可直接使用（US 节点）。EXISTS = 码存在但需对应地区节点付款。",
+  "eligible": {
+    "US": [
+      {"code": "thealloynetwork", "discount_usd": 30, "duration_months": 48, "company": "The Alloy Network"},
+      {"code": "thealloynetworkus", "discount_usd": 30, "duration_months": 48, "company": "The Alloy Network (alias)"},
+      {"code": "alongsideus", "discount_usd": 30, "duration_months": 48, "company": "Alongside"},
+      {"code": "monicaius", "discount_usd": 30, "duration_months": 48, "company": "Monica AI"},
+      {"code": "talentgeniusus", "discount_usd": 25, "duration_months": 48, "company": "TalentGenius"},
+      {"code": "firstfocusus", "discount_usd": 25, "duration_months": 48, "company": "First Focus"},
+      {"code": "wildmangous", "discount_usd": 25, "duration_months": 48, "company": "WildMango"}
+    ]
+  },
+  "exists": {
+    "AU": [
+      {"code": "firstfocus", "discount_local": "A$45/月", "discount_usd": 33, "company": "First Focus"},
+      {"code": "talentgeniusau", "discount_local": "A$35/月", "discount_usd": 25, "company": "TalentGenius"}
+    ],
+    "BR": [
+      {"code": "talentgeniusbr", "discount_local": "R$130/月", "discount_usd": 26, "company": "TalentGenius"}
+    ],
+    "CA": [
+      {"code": "talentgeniusca", "discount_local": "C$34/月", "discount_usd": 25, "company": "TalentGenius"},
+      {"code": "monicaica", "discount_local": "C$42/月", "discount_usd": 31, "company": "Monica AI"}
+    ],
+    "DE": [
+      {"code": "codestonede", "discount_local": "€29/月", "discount_usd": 34, "company": "Codestone"}
+    ],
+    "ES": [
+      {"code": "codestonees", "discount_local": "€28/月", "discount_usd": 33, "company": "Codestone"}
+    ],
+    "FR": [
+      {"code": "codestonefr", "discount_local": "€28/月", "discount_usd": 33, "company": "Codestone"},
+      {"code": "wildmangofr", "discount_local": "€22/月", "discount_usd": 26, "company": "WildMango"}
+    ],
+    "GB": [
+      {"code": "aibuildgroupgb", "discount_local": "£18/月", "discount_usd": 25, "company": "AI Build Group"},
+      {"code": "talentgeniusuk", "discount_local": "£18/月", "discount_usd": 25, "company": "TalentGenius"}
+    ],
+    "KE": [
+      {"code": "wildmangoke", "discount_local": "$30/月", "discount_usd": 30, "company": "WildMango"}
+    ],
+    "NG": [
+      {"code": "wildmangong", "discount_local": "₦33,600/月", "discount_usd": 25, "company": "WildMango"}
+    ],
+    "NZ": [
+      {"code": "firstfocusnz", "discount_local": "NZ$41/月", "discount_usd": 24, "company": "First Focus"}
+    ],
+    "ZA": [
+      {"code": "wildmangoza", "discount_local": "R400/月", "discount_usd": 24, "company": "WildMango"}
+    ]
+  }
+}

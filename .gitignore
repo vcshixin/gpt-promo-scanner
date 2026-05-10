@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# 虚拟环境
+venv/
+.venv/
+
+# 配置（含 token）
+config.toml
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# 系统
+.DS_Store
+Thumbs.db
+
+# 扫描结果（个人数据）
+stripe_url*.txt
+promo_codes.txt
+scan_results.json
+discovery_*.json
+results.json
+
+# 去重缓存
+.candidates_*.txt

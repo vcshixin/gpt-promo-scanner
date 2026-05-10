@@ -1,0 +1,27 @@
+# ChatGPT Team 促销码扫描工具 — 配置
+#
+# 复制为 config.toml 并填入你的配置:
+#   cp config.toml.example config.toml
+#
+# 配置也可以使用环境变量覆盖:
+#   export OPENAI_TOKEN='...'
+#   export CLASH_SOCKET='/tmp/verge/verge-mihomo.sock'
+#   export HTTP_PROXY='http://127.0.0.1:7890'
+
+[openai]
+# ChatGPT accessToken — 从 chatgpt.com F12 Console 获取:
+# const s = await (await fetch('/api/auth/session')).json(); console.log(s.accessToken);
+token = ""
+
+[clash]
+# Clash Verge 的 Unix socket 路径
+socket = "/tmp/verge/verge-mihomo.sock"
+
+# 代理组名（取决于你的 Clash 配置）
+[clash.proxy_groups]
+rule = "🤖 AI"
+global = "GLOBAL"
+
+[proxy]
+# HTTP 代理地址（curl_cffi 通过此代理发出请求）
+url = "http://127.0.0.1:7890"
