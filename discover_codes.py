@@ -95,6 +95,8 @@ def normalize(name):
 KNOWN_BASES = [
     "aibuildgroup", "wildmango", "firstfocus", "codestone",
     "talentgenius", "thealloynetwork", "alongside", "monicai",
+    "thinkingmachines",
+    "trintel", "noranalytos", "infoseekai", "datroai", "vouchapi",
 ]
 
 # ============================================================
@@ -391,10 +393,41 @@ def build_candidates(country_code, dedup_set=None):
     if country_code == "GB":
         return build_uk_candidates(dedup_set)
 
+    if country_code == "TR":
+        return _build_tr_candidates(dedup_set)
+
     # 默认：UK bases × 国家码
     names = set()
     for b in KNOWN_BASES:
         names.add(f"{b}{country_code.lower()}")
+    return sorted(names)
+
+
+def _build_tr_candidates(dedup_set=None):
+    """加载土耳其公司候选码（从外部文件）"""
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    tr_file = os.path.join(base_dir, "turkish_candidates.txt")
+    names = set()
+    if os.path.exists(tr_file):
+        with open(tr_file) as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#") or line.startswith("//"):
+                    continue
+                # 格式: "公司名 → 候选码" 或者直接 "候选码"
+                if "→" in line:
+                    code = line.split("→")[-1].strip()
+                else:
+                    code = line.strip()
+                if code and len(code) >= 4:
+                    names.add(code)
+    else:
+        # 后备：从 KNOWN_BASES 生成 tr 码
+        for b in KNOWN_BASES:
+            names.add(f"{b}tr")
+    # 去重
+    if dedup_set:
+        names -= dedup_set
     return sorted(names)
 
 

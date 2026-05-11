@@ -24,6 +24,7 @@ Thumbs.db
 
 # 扫描结果（个人数据）
 stripe_url*.txt
+metadata_cache.json
 promo_codes.txt
 scan_results.json
 discovery_*.json
