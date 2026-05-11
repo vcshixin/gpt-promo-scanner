@@ -24,14 +24,15 @@ Thumbs.db
 
 # 扫描结果（个人数据）
 stripe_url*.txt
+metadata_cache.json
 promo_codes.txt
 scan_results.json
 discovery_*.json
 results.json
 price_calc_results.json
 
-# 促销码数据（本地使用，不公开）
-known_codes.json
+# 促销码数据
+# known_codes.json 已纳入版本管理
 
 # L站文章草稿
 LINUXDO_POST.md

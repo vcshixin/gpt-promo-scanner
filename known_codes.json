@@ -1,0 +1,78 @@
+{
+  "last_updated": "2026-05-12",
+  "note": "所有价格为 2 人席位月付税前实付（去税）。US 码可直接用，其他地区需对应节点付款。",
+  "valid": {
+    "US": [
+      {"code": "thealloynetwork", "price_usd": 30, "duration_months": 48, "company": "The Alloy Network", "discount_pct": 40},
+      {"code": "alongsideus", "price_usd": 30, "duration_months": 48, "company": "Alongside", "discount_pct": 40},
+      {"code": "monicaius", "price_usd": 20, "duration_months": 48, "company": "Monica AI", "discount_pct": 60},
+      {"code": "talentgeniusus", "price_usd": 25, "duration_months": 48, "company": "TalentGenius", "discount_pct": 50},
+      {"code": "firstfocusus", "price_usd": 25, "duration_months": 48, "company": "First Focus", "discount_pct": 50},
+      {"code": "wildmangous", "price_usd": 25, "duration_months": 48, "company": "WildMango", "discount_pct": 50},
+      {"code": "trintelus", "price_usd": 20, "duration_months": 48, "company": "Trintel", "discount_pct": 60},
+      {"code": "noranalytosus", "price_usd": 25, "duration_months": 48, "company": "Noranalytos", "discount_pct": 50},
+      {"code": "infoseekaius", "price_usd": 25, "duration_months": 48, "company": "InfoSeek AI", "discount_pct": 50},
+      {"code": "datroaius", "price_usd": 20, "duration_months": 48, "company": "Datro AI", "discount_pct": 60},
+      {"code": "vouchapius", "price_usd": 25, "duration_months": 48, "company": "VouchAPI", "discount_pct": 50}
+    ],
+    "GB": [
+      {"code": "aibuildgroupgb", "price_local": "£18/月", "price_usd": 25, "company": "AI Build Group", "discount_pct": 50},
+      {"code": "talentgeniusuk", "price_local": "£18/月", "price_usd": 25, "company": "TalentGenius", "discount_pct": 50}
+    ],
+    "AU": [
+      {"code": "talentgeniusau", "price_local": "A$35/月", "price_usd": 25, "company": "TalentGenius", "discount_pct": 50}
+    ],
+    "BR": [
+      {"code": "talentgeniusbr", "price_local": "R$130/月", "price_usd": 27, "company": "TalentGenius", "discount_pct": 50}
+    ],
+    "CA": [
+      {"code": "talentgeniusca", "price_local": "C$34/月", "price_usd": 25, "company": "TalentGenius", "discount_pct": 50},
+      {"code": "monicaica", "price_local": "C$26/月", "price_usd": 19, "company": "Monica AI", "discount_pct": 62},
+      {"code": "datroaica", "price_local": "C$26/月", "price_usd": 19, "company": "Datro AI", "discount_pct": 62},
+      {"code": "noranalytosca", "price_local": "C$34/月", "price_usd": 25, "company": "Noranalytos", "discount_pct": 50}
+    ],
+    "DE": [
+      {"code": "codestonede", "price_local": "€15.13/月", "price_usd": 18, "company": "Codestone", "discount_pct": 71}
+    ],
+    "ES": [
+      {"code": "codestonees", "price_local": "€14.89/月", "price_usd": 18, "company": "Codestone", "discount_pct": 65}
+    ],
+    "FR": [
+      {"code": "codestonefr", "price_local": "€15.01/月", "price_usd": 18, "company": "Codestone", "discount_pct": 65},
+      {"code": "wildmangofr", "price_local": "€21.67/月", "price_usd": 26, "company": "WildMango", "discount_pct": 50},
+      {"code": "noranalytosfr", "price_local": "€21.67/月", "price_usd": 26, "company": "Noranalytos", "discount_pct": 50}
+    ],
+    "IN": [
+      {"code": "noranalytosin", "price_local": "₹2,250/月", "price_usd": 24, "company": "Noranalytos", "discount_pct": 50}
+    ],
+    "JP": [
+      {"code": "datroaijp", "price_local": "¥3,050/月", "price_usd": 19, "company": "Datro AI", "discount_pct": 60}
+    ],
+    "KE": [
+      {"code": "wildmangoke", "price_local": "$23.20/月", "price_usd": 23, "company": "WildMango", "discount_pct": 54}
+    ],
+    "NG": [
+      {"code": "wildmangong", "price_local": "₦33,600/月", "price_usd": 25, "company": "WildMango", "discount_pct": 50}
+    ],
+    "NZ": [
+      {"code": "firstfocusnz", "price_local": "NZ$41/月", "price_usd": 24, "company": "First Focus", "discount_pct": 50}
+    ],
+    "ZA": [
+      {"code": "wildmangoza", "price_local": "R400/月", "price_usd": 24, "company": "WildMango", "discount_pct": 50}
+    ],
+    "TH": [
+      {"code": "thinkingmachinesth", "price_local": "฿561/月", "price_usd": 17, "company": "Thinking Machines", "discount_pct": 64}
+    ],
+    "SG": [
+      {"code": "thinkingmachinessg", "price_local": "S$27.25/月", "price_usd": 22, "company": "Thinking Machines", "discount_pct": 57}
+    ],
+    "PH": [
+      {"code": "thinkingmachinesph", "price_local": "₱1,345/月", "price_usd": 22, "company": "Thinking Machines", "discount_pct": 54}
+    ]
+  },
+  "expired": [
+    {"code": "firstfocus", "region": "AU", "company": "First Focus", "note": "AU 无后缀码，已失效"},
+    {"code": "geccogb", "region": "GB", "company": "GECCO", "note": "曾是最便宜码之一 ~£11/月"},
+    {"code": "codestonegb", "region": "GB", "company": "Codestone", "note": "曾 ~£11/月"}
+  ]
+}

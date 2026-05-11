@@ -60,7 +60,7 @@ REGIONS = {
     },
     "FR": {
         "keywords": ["法国", "🇫🇷"],
-        "codes": [("codestonefr", "FR", "EUR"), ("wildmangofr", "FR", "EUR")],
+        "codes": [("codestonefr", "FR", "EUR"), ("wildmangofr", "FR", "EUR"), ("noranalytosfr", "FR", "EUR")],
         "label": "🇫🇷 法国",
     },
     "ES": {
@@ -70,7 +70,7 @@ REGIONS = {
     },
     "CA": {
         "keywords": ["加拿大", "🇨🇦"],
-        "codes": [("talentgeniusca", "CA", "CAD"), ("monicaica", "CA", "CAD")],
+        "codes": [("talentgeniusca", "CA", "CAD"), ("monicaica", "CA", "CAD"), ("datroaica", "CA", "CAD"), ("noranalytosca", "CA", "CAD")],
         "label": "🇨🇦 加拿大",
     },
     "BR": {
@@ -113,6 +113,16 @@ REGIONS = {
         "codes": [("thinkingmachinesph", "PH", "PHP")],
         "label": "🇵🇭 菲律宾",
     },
+    "IN": {
+        "keywords": ["🇮🇳", "印度 "],
+        "codes": [("noranalytosin", "IN", "INR")],
+        "label": "🇮🇳 印度",
+    },
+    "JP": {
+        "keywords": ["日本", "🇯🇵"],
+        "codes": [("datroaijp", "JP", "JPY")],
+        "label": "🇯🇵 日本",
+    },
 }
 
 US_CODES = [
@@ -122,11 +132,38 @@ US_CODES = [
     ("talentgeniusus", "US", "USD"),
     ("firstfocusus", "US", "USD"),
     ("wildmangous", "US", "USD"),
+    ("trintelus", "US", "USD"),
+    ("noranalytosus", "US", "USD"),
+    ("infoseekaius", "US", "USD"),
+    ("datroaius", "US", "USD"),
+    ("vouchapius", "US", "USD"),
 ]
 
 CURRENCY_SYMBOLS = {
     "USD": "$", "GBP": "£", "EUR": "€", "AUD": "A$", "CAD": "C$",
     "BRL": "R$", "NZD": "NZ$", "ZAR": "R", "NGN": "₦", "THB": "฿", "SGD": "S$", "PHP": "₱",
+    "INR": "₹", "JPY": "¥",
+}
+
+# ChatGPT Team 各国家 2 人月付基价（税前）
+BASE_2_SEAT_PRICES = {
+    "US": {"amount": 50, "currency": "USD"},
+    "CA": {"amount": 68, "currency": "CAD"},
+    "GB": {"amount": 36, "currency": "GBP"},
+    "AU": {"amount": 70, "currency": "AUD"},
+    "BR": {"amount": 260, "currency": "BRL"},
+    "NZ": {"amount": 82, "currency": "NZD"},
+    "KE": {"amount": 50, "currency": "USD"},
+    "ZA": {"amount": 800, "currency": "ZAR"},
+    "NG": {"amount": 67200, "currency": "NGN"},
+    "TH": {"amount": 1560, "currency": "THB"},
+    "SG": {"amount": 64, "currency": "SGD"},
+    "PH": {"amount": 2900, "currency": "PHP"},
+    "FR": {"amount": 52, "currency": "EUR"},
+    "DE": {"amount": 52, "currency": "EUR"},
+    "ES": {"amount": 52, "currency": "EUR"},
+    "IN": {"amount": 4500, "currency": "INR"},
+    "JP": {"amount": 7670, "currency": "JPY"},
 }
 
 # ─── 汇率 ────────────────────────────────────────────────────
@@ -151,7 +188,7 @@ def fetch_exchange_rates():
         _exchange_rates = {
             "USD": 1, "GBP": 0.73, "EUR": 0.85, "AUD": 1.38,
             "CAD": 1.37, "BRL": 4.92, "NZD": 1.68, "ZAR": 16.39,
-            "NGN": 1360,
+            "NGN": 1360, "INR": 83.5, "JPY": 150, "THB": 36, "SGD": 1.34, "PHP": 58,
         }
         return _exchange_rates
 
@@ -288,6 +325,7 @@ def try_checkout(code, country, currency):
 # ─── 价格收集 ────────────────────────────────────────────────
 
 _metadata_cache = {}
+_metadata_raw_cache = {}  # 保存原始 API 响应
 
 def fetch_metadata(code):
     """调用 metadata API 获取折扣信息"""
@@ -301,6 +339,7 @@ def fetch_metadata(code):
         data = resp.json()
         meta = data.get("metadata") or data
         _metadata_cache[code] = meta
+        _metadata_raw_cache[code] = data
         return meta
     except Exception:
         return None
@@ -330,8 +369,8 @@ def get_base_checkout(country, currency):
         return {}
 
 
-def extract_price_info(meta, base_checkout_data):
-    """整合 metadata + base checkout 输出价格摘要"""
+def extract_price_info(meta, base_checkout_data, country_code=None):
+    """整合 metadata + base checkout + 基价表，输出完整价格信息"""
     if not meta or not meta.get("discount"):
         return None
 
@@ -348,6 +387,21 @@ def extract_price_info(meta, base_checkout_data):
         "discount_usd": usd_equiv,
         "duration": f"{duration} {period}s",
     }
+
+    # 从基价表计算实付和折扣率
+    if country_code and country_code in BASE_2_SEAT_PRICES:
+        bp = BASE_2_SEAT_PRICES[country_code]
+        if bp["currency"] == discount_ccy:
+            base_total = bp["amount"]
+            base_per_seat = base_total // 2
+            actual_total = round(base_total - discount_val, 2)
+            discount_pct = round(discount_val / base_total * 100)
+            actual_usd = round(to_usd(actual_total, discount_ccy))
+            info["base_per_seat"] = base_per_seat
+            info["base_2_total"] = base_total
+            info["actual_price"] = actual_total
+            info["actual_usd"] = actual_usd
+            info["discount_pct"] = discount_pct
 
     if base_checkout_data.get("url"):
         info["base_url"] = base_checkout_data["url"]
@@ -410,10 +464,18 @@ def scan_region(code_list, country, currency, collect_price=True):
             sys.stdout.flush()
             meta = fetch_metadata(code)
             time.sleep(0.3)
-            price_info = extract_price_info(meta, base_data)
+            price_info = extract_price_info(meta, base_data, country)
 
             if price_info:
-                print(f" {format_price_line(price_info)}")
+                detail = format_price_line(price_info)
+                if "actual_price" in price_info:
+                    sym = CURRENCY_SYMBOLS.get(price_info["discount_currency"], "")
+                    detail += f" → {sym}{price_info['actual_price']:.0f}/月"
+                    if price_info.get("actual_usd"):
+                        detail += f" (${price_info['actual_usd']}/月)"
+                    if price_info.get("discount_pct"):
+                        detail += f" -{price_info['discount_pct']}%"
+                print(f" {detail}")
             else:
                 print(" 无折扣信息")
         elif url:
@@ -496,12 +558,19 @@ def run_scan(target_region=None, auto_open=False, collect_price=True):
         return
 
     # 终端输出表格
-    print(f"\n{'促销码':<25s} {'地区':<6s} {'本地折扣':<18s} {'≈ USD'}")
+    print(f"\n{'促销码':<25s} {'地区':<6s} {'实付/月':<14s} {'折扣':<6s} {'≈ USD'}")
     print("-" * 70)
     for code, rc, url, price in working:
-        pl = format_price_line(price) if price else ""
-        usd = format_usd_line(price) if price else ""
-        print(f"  {code:<23s} {rc:<6s} {pl:<18s} {usd}")
+        if price and "actual_price" in price:
+            sym = CURRENCY_SYMBOLS.get(price["discount_currency"], "")
+            actual = f"{sym}{price['actual_price']:.0f}"
+            pct = f"-{price['discount_pct']}%"
+            usd_val = f"${price['actual_usd']}"
+        else:
+            actual = format_price_line(price) if price else "?"
+            pct = ""
+            usd_val = format_usd_line(price) if price else "?"
+        print(f"  {code:<23s} {rc:<6s} {actual:<14s} {pct:<6s} {usd_val}")
     print()
 
     # 保存到文件
@@ -524,25 +593,26 @@ def run_scan(target_region=None, auto_open=False, collect_price=True):
 
 
 def _save_results(working, mode):
-    """保存扫描结果到 stripe_urls.txt 和 scan_results.json"""
-
+    """保存扫描结果到 stripe_urls.txt、scan_results.json 和 metadata 缓存"""
     # ── TXT ──
     text_path = os.path.join(OUTPUT_DIR, "stripe_urls.txt")
     with open(text_path, "w") as f:
         f.write(f"ChatGPT Team 促销码 Stripe URL — {datetime.now().strftime('%Y-%m-%d %H:%M')}\n")
         f.write(f"共 {len(working)} 个可用码\n\n")
         for code, rc, url, price in working:
-            pl = format_price_line(price) if price else ""
-            usd = format_usd_line(price) if price else ""
             f.write(f"[{rc}] {code}\n")
-            if pl:
-                f.write(f"    {pl}")
-                if usd:
-                    f.write(f"  ({usd})")
-                f.write("\n")
+            if price and "actual_price" in price:
+                sym = CURRENCY_SYMBOLS.get(price["discount_currency"], "")
+                f.write(f"    实付: {sym}{price['actual_price']:.0f}/月  ({price['discount_pct']}% off)"
+                        f"  ≈ ${price['actual_usd']}/月\n")
+                f.write(f"    折扣: {price['discount_amount']}{sym} off x {price['duration']}\n")
+            elif price:
+                pl = format_price_line(price)
+                usd = format_usd_line(price)
+                f.write(f"    {pl}" + (f"  ({usd})" if usd else "") + "\n")
             f.write(f"    {url}\n\n")
 
-    # ── JSON ──
+    # ── JSON (带完整价格信息) ──
     json_path = os.path.join(OUTPUT_DIR, "scan_results.json")
     json_results = []
     for code, rc, url, price in working:
@@ -551,13 +621,24 @@ def _save_results(working, mode):
             entry["price_info"] = price
         json_results.append(entry)
 
+    scan_time = datetime.now().isoformat()
     with open(json_path, "w") as f:
         json.dump({
-            "scan_time": datetime.now().isoformat(),
+            "scan_time": scan_time,
             "clash_mode": mode,
             "total_working": len(working),
             "results": json_results,
         }, f, indent=2, ensure_ascii=False)
+
+    # ── metadata 原始响应 ──
+    if _metadata_raw_cache:
+        meta_path = os.path.join(OUTPUT_DIR, "metadata_cache.json")
+        with open(meta_path, "w") as f:
+            json.dump({
+                "last_updated": scan_time,
+                "metadata": _metadata_raw_cache,
+            }, f, indent=2, ensure_ascii=False)
+        print(f"📝 已保存: {meta_path}")
 
     print(f"📝 已保存: {text_path}")
     print(f"📝 已保存: {json_path}")
