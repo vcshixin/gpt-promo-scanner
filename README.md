@@ -101,29 +101,29 @@ python discover_codes.py GB
 
 | 促销码 | 地区 | 原价(2人) | 实付(税前) | 折扣 | ≈ USD | 公司 |
 |--------|------|----------|-----------|------|-------|------|
-| `thealloynetwork` | 🇺🇸 US | $50 | $30.00/月 | 40% | $30/月 | The Alloy Network |
-| `alongsideus` | 🇺🇸 US | $50 | $30.00/月 | 40% | $30/月 | Alongside |
-| `monicaius` | 🇺🇸 US | $50 | $30.00/月 | 40% | $30/月 | Monica AI |
-| `talentgeniusus` | 🇺🇸 US | $50 | $25.00/月 | 50% | $25/月 | TalentGenius |
-| `firstfocusus` | 🇺🇸 US | $50 | $25.00/月 | 50% | $25/月 | First Focus |
-| `wildmangous` | 🇺🇸 US | $50 | $25.00/月 | 50% | $25/月 | WildMango |
+| `thinkingmachinesth` | 🇹🇭 TH | ฿1,560 | ฿561.00/月 | 64% | $17/月 | Thinking Machines |
 | `codestonede` | 🇩🇪 DE | €52 | €15.13/月 | 71% | $18/月 | Codestone |
 | `codestonees` | 🇪🇸 ES | €52 | €14.89/月 | 65% | $18/月 | Codestone |
 | `codestonefr` | 🇫🇷 FR | €52 | €15.01/月 | 65% | $18/月 | Codestone |
-| `talentgeniusau` | 🇦🇺 AU | A$70 | A$35.00/月 | 50% | $25/月 | TalentGenius |
-| `talentgeniusca` | 🇨🇦 CA | C$68 | C$34.00/月 | 50% | $25/月 | TalentGenius |
 | `monicaica` | 🇨🇦 CA | C$68 | C$26.00/月 | 62% | $19/月 | Monica AI |
-| `talentgeniusbr` | 🇧🇷 BR | R$260 | R$130.00/月 | 50% | $27/月 | TalentGenius |
-| `wildmangofr` | 🇫🇷 FR | €52 | €21.67/月 | 50% | $26/月 | WildMango |
-| `aibuildgroupgb` | 🇬🇧 GB | £36 | £18.00/月 | 50% | $25/月 | AI Build Group |
-| `talentgeniusuk` | 🇬🇧 GB | £36 | £18.00/月 | 50% | $25/月 | TalentGenius |
-| `wildmangoke` | 🇰🇪 KE | $50 | $23.20/月 | 54% | $23/月 | WildMango |
-| `wildmangong` | 🇳🇬 NG | ₦67,200 | ₦33,600/月 | 50% | $25/月 | WildMango |
-| `firstfocusnz` | 🇳🇿 NZ | NZ$82 | NZ$41.00/月 | 50% | $24/月 | First Focus |
-| `wildmangoza` | 🇿🇦 ZA | R800 | R400.00/月 | 50% | $24/月 | WildMango |
-| `thinkingmachinesth` | 🇹🇭 TH | ฿1,560 | ฿561.00/月 | 64% | $17/月 | Thinking Machines |
 | `thinkingmachinessg` | 🇸🇬 SG | S$64 | S$27.25/月 | 57% | $22/月 | Thinking Machines |
 | `thinkingmachinesph` | 🇵🇭 PH | ₱2,900 | ₱1,345.00/月 | 54% | $22/月 | Thinking Machines |
+| `wildmangoke` | 🇰🇪 KE | $50 | $23.20/月 | 54% | $23/月 | WildMango |
+| `firstfocusnz` | 🇳🇿 NZ | NZ$82 | NZ$41.00/月 | 50% | $24/月 | First Focus |
+| `wildmangoza` | 🇿🇦 ZA | R800 | R400.00/月 | 50% | $24/月 | WildMango |
+| `talentgeniusus` | 🇺🇸 US | $50 | $25.00/月 | 50% | $25/月 | TalentGenius |
+| `firstfocusus` | 🇺🇸 US | $50 | $25.00/月 | 50% | $25/月 | First Focus |
+| `wildmangous` | 🇺🇸 US | $50 | $25.00/月 | 50% | $25/月 | WildMango |
+| `talentgeniusau` | 🇦🇺 AU | A$70 | A$35.00/月 | 50% | $25/月 | TalentGenius |
+| `talentgeniusca` | 🇨🇦 CA | C$68 | C$34.00/月 | 50% | $25/月 | TalentGenius |
+| `aibuildgroupgb` | 🇬🇧 GB | £36 | £18.00/月 | 50% | $25/月 | AI Build Group |
+| `talentgeniusuk` | 🇬🇧 GB | £36 | £18.00/月 | 50% | $25/月 | TalentGenius |
+| `wildmangong` | 🇳🇬 NG | ₦67,200 | ₦33,600/月 | 50% | $25/月 | WildMango |
+| `wildmangofr` | 🇫🇷 FR | €52 | €21.67/月 | 50% | $26/月 | WildMango |
+| `talentgeniusbr` | 🇧🇷 BR | R$260 | R$130.00/月 | 50% | $27/月 | TalentGenius |
+| `thealloynetwork` | 🇺🇸 US | $50 | $30.00/月 | 40% | $30/月 | The Alloy Network |
+| `alongsideus` | 🇺🇸 US | $50 | $30.00/月 | 40% | $30/月 | Alongside |
+| `monicaius` | 🇺🇸 US | $50 | $30.00/月 | 40% | $30/月 | Monica AI |
 
 > 所有码均适用 ChatGPT Business 计划，48 个月固定折扣。价格为税前实付，修改账单地址到免税地区可免税费。
 
