@@ -33,5 +33,8 @@ price_calc_results.json
 # 促销码数据（本地使用，不公开）
 known_codes.json
 
+# L站文章草稿
+LINUXDO_POST.md
+
 # 去重缓存
 .candidates_*.txt
