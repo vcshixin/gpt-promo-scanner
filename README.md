@@ -1,6 +1,6 @@
 # ChatGPT Team (Business) 促销码自动扫描工具
 
-[![LinuxDo](https://img.shields.io/badge/LinuxDo-%E5%8E%9F%E5%88%9B%E5%8F%91%E5%B8%83-06b6d4?style=for-the-badge)](https://linux.do)
+[![LINUX DO](https://img.shields.io/badge/LINUX-DO-FFB003?style=flat-square)](https://linux.do)
 
 自动发现、验证 ChatGPT Team（现 ChatGPT Business）促销码，生成 Stripe 支付链接，收集折扣价格。
 
