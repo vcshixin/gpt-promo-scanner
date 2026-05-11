@@ -28,6 +28,7 @@ promo_codes.txt
 scan_results.json
 discovery_*.json
 results.json
+price_calc_results.json
 
 # 去重缓存
 .candidates_*.txt
