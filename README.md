@@ -2,7 +2,7 @@
 
 [![LINUX DO](https://img.shields.io/badge/LINUX-DO-FFB003?style=flat-square)](https://linux.do/t/topic/2156521)
 
-> 原创研究首发于 [Linux Do 社区](https://linux.do/t/topic/2156521)
+> 原创研究首发于 [Linux Do 社区](https://linux.do/t/topic/2156521)（一级用户才可查看）
 >
 > 目前已枚举 **17 个国家** 共 **34 个有效促销码**，最高折扣 71%
 
