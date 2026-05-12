@@ -17,7 +17,8 @@
     ],
     "GB": [
       {"code": "aibuildgroupgb", "price_local": "£18/月", "price_usd": 25, "company": "AI Build Group", "discount_pct": 50},
-      {"code": "talentgeniusuk", "price_local": "£18/月", "price_usd": 25, "company": "TalentGenius", "discount_pct": 50}
+      {"code": "talentgeniusuk", "price_local": "£18/月", "price_usd": 25, "company": "TalentGenius", "discount_pct": 50},
+      {"code": "datroaiuk", "price_local": "待验证", "price_usd": null, "company": "Datro AI", "discount_pct": null}
     ],
     "AU": [
       {"code": "talentgeniusau", "price_local": "A$35/月", "price_usd": 25, "company": "TalentGenius", "discount_pct": 50}
